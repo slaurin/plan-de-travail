@@ -1,6 +1,5 @@
 $(document).ready(function(){
 
-	$('table').dragtable();
 
 	for(i = 1; i < 11; i++) {
 		// Afficher le nom des taches

@@ -1,0 +1,101 @@
+.green {
+	background-color: #44DD00;
+}
+
+.red {
+	background-color: #D0D0FF;
+}
+
+#header {
+	display: block;
+	float: left;
+}
+
+
+.priorite {
+	margin-right: 2px;
+	display: block;
+	float: left;
+	clear: both;
+}
+
+.prio-rouge {
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	background-color: red;
+	height: 9px;
+	width: 9px
+}
+
+.prio-rouge-highlight {
+	background-color: #FFE0E0;
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.prio-jaune {
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	background-color: yellow;
+	height: 9px;
+	width: 9px
+}
+
+.prio-jaune-highlight {
+	background-color: #FFFF99;
+
+}
+
+.prio-vert {
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	background-color: green;
+	height: 9px;
+	width: 9px
+}
+
+.prio-vert-highlight {
+	background-color: #E0FFE0;
+
+}
+
+#nom-eleves {
+	min-width: 200px;
+	width: 200px;
+	max-width: 200px;
+
+}
+
+th {
+	min-width: 100px;
+	width: 100px;
+	max-width: 100px;
+}
+/*
+td {
+	min-height: 20px;
+	height: 20px;
+	max-height: 20px;
+}
+*/
+
+.table td,
+.table th
+{
+	text-align:left;
+}
+
+#center,
+.table td + td,
+.table th + th
+{
+	text-align:center;
+}
+
+button {
+	text-align: center;
+	min-width: 30px;	
+}

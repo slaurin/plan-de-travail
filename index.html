@@ -1,0 +1,418 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Liste des tâches</title>
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<!--
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <div class="navbar-header">
+    <button type="button" id="reset-button" class="btn btn-default navbar-btn">Réinitialiser</button>
+    </div>
+    </div>
+    </nav>
+  -->
+
+  <div class="container">
+   <div id="header">
+    <h2>Plan de travail</h2>
+    <h5> groupe 511 </h5>
+    <h4>Semaine du 14 septembre</h4>
+    <button type="button" id="reset-button" class="btn btn-default navbar-btn">Réinitialiser</button>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th id="nom-eleves">Nom</th>
+        <th contentEditable="true" class="tache-name">Tâche 1</th>
+        <th contentEditable="true" class="tache-name">Tâche 2</th>
+        <th contentEditable="true" class="tache-name">Tâche 3</th>
+        <th contentEditable="true" class="tache-name">Tâche 4</th>
+        <th contentEditable="true" class="tache-name">Tâche 5</th>
+        <th contentEditable="true" class="tache-name">Tâche 6</th>
+        <th contentEditable="true" class="tache-name">Tâche 7</th>
+        <th contentEditable="true" class="tache-name">Tâche 8</th>
+        <th contentEditable="true" class="tache-name">Tâche 9</th>
+        <th contentEditable="true" class="tache-name">Tâche 10</th>
+      </tr>
+      <tr>
+      	<th></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td contentEditable="true">Élève 1</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>        
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 2</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 3</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 4</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 5</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 6</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 7</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 8</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 9</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 10</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 11</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 12</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 13</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 14</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 15</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 16</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 17</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 18</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 19</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 20</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 21</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 22</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 23</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 24</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 25</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+      <tr>
+        <td contentEditable="true">Élève 26</td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+        <td><button class="red tache">À faire</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -10,12 +10,6 @@ body {
 	background-color: #D0D0FF;
 }
 
-#header {
-	display: block;
-	float: left;
-}
-
-
 .priorite {
 	margin-right: 2px;
 	display: block;
@@ -78,13 +72,6 @@ th {
 	width: 100px;
 	max-width: 100px;
 }
-/*
-td {
-	min-height: 20px;
-	height: 20px;
-	max-height: 20px;
-}
-*/
 
 .table td,
 .table th

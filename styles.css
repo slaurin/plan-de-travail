@@ -1,8 +1,12 @@
-.green {
+body {
+	padding-top: 70px;
+}
+
+.fait {
 	background-color: #44DD00;
 }
 
-.red {
+.a-faire {
 	background-color: #D0D0FF;
 }
 

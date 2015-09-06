@@ -60,10 +60,10 @@ $(document).ready(function(){
 
 	$("button.tache").on('click', function(){
 
-		$(this).toggleClass("green");
-		$(this).toggleClass("red");
+		$(this).toggleClass("fait");
+		$(this).toggleClass("a-faire");
 
-		if($(this).hasClass("green")) {
+		if($(this).hasClass("fait")) {
 			$(this).text("Fait");
 		}
 		else
@@ -142,7 +142,7 @@ $(document).ready(function(){
 		localStorage["tache" + (col -1) + "name"] = "Tâche " + (col-1);
 
 		$('table').find('tr td:nth-child(' + col + ') button.tache').text("À faire");
-		$('table').find('tr td:nth-child(' + col + ') button.tache').removeClass("green").addClass("red");	
+		$('table').find('tr td:nth-child(' + col + ') button.tache').removeClass("fait").addClass("a-faire");	
 
 		for(i = 1; i < 3; i++) {
 			$('thead tr:nth-child(' + i + ') th:nth-child(' + (col) + ')').removeClass("prio-vert-highlight");
@@ -164,8 +164,8 @@ $(document).ready(function(){
 
 	// Reinitialiser tous sauf le nom des eleves
 	$("button#reset-button").on('click', function(){
-		$("td").find("button").removeClass("green");
-		$("td").find("button").addClass("red");
+		$("td").find("button").removeClass("fait");
+		$("td").find("button").addClass("a-faire");
 		$("td").find("button").text("À faire");
 
 		for(i = 2 ; i < 12; i++) {

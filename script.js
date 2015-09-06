@@ -1,5 +1,29 @@
 $(document).ready(function(){
 
+	var mois = ["janvier", "février", "mars", "avril", "mai", "juin",
+  	"juillet", "août", "septembre", "octobre", "novembre", "décembre"
+	];
+
+	var d = new Date();
+	var dayOfWeek = d.getDay();
+
+	var lundi;
+	var vendredi;
+	if(dayOfWeek == 0) {
+		lundi = d.getDate() + 1;
+		vendredi = d.getDate() + 5;
+	}
+	else if(dayOfWeek == 1) {
+		lundi = d.getDate();
+		vendredi = d.getDate() + 4;
+	}
+	else if(dayOfWeek > 1) {
+		lundi = d.getDate() - dayOfWeek + 1;
+		vendredi = d.getDate() - dayOfWeek + 5;
+	}
+
+	$('#semaine').text("Semaine du lundi " + lundi + " au vendredi " + vendredi + " " + mois[d.getMonth()] + " " + d.getFullYear());
+
 
 	for(i = 1; i < 11; i++) {
 		// Afficher le nom des taches

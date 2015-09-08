@@ -73,63 +73,31 @@ $(document).ready(function(){
 	});
 
 	$("div.prio-rouge").on('click', function() {
-
-		for(i = 1; i < 3; i++) {
-
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-rouge-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-jaune-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-vert-highlight");
-		}
-
-		for(i = 1; i < 27; i++) {
-
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-rouge-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-jaune-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-vert-highlight");
-
-		}
-
+		i = 1;
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-rouge-highlight");
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-jaune-highlight");
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-vert-highlight");
 
 		localStorage["tache" + ($(this).parent().index()) + "prio"] = "prio-rouge-highlight";
 
 	});
 
 	$("div.prio-jaune").on('click', function() {
-		for(i = 1; i < 3; i++) {
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-jaune-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-rouge-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-vert-highlight");
-		}
-
-		for(i = 1; i < 27; i++) {
-
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-jaune-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-rouge-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-vert-highlight");
-
-		}
+		i = 1;
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-jaune-highlight");
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-rouge-highlight");
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-vert-highlight");
 
 		localStorage["tache" + ($(this).parent().index()) + "prio"] = "prio-jaune-highlight";
-		console.log($(this).parent().index());
 	});
 
 	$("div.prio-vert").on('click', function() {
 
-		for(i = 1; i < 3; i++) {
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-vert-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-rouge-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-jaune-highlight");
-		}
-
-		for(i = 1; i < 27; i++) {
-
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-vert-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-rouge-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-jaune-highlight");
-
-		}
+		i = 1;
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').addClass("prio-vert-highlight");
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-rouge-highlight");
+		$('thead tr:nth-child(' + i + ') th:nth-child(' + ($(this).parent().index() + 1) + ')').removeClass("prio-jaune-highlight");
 		localStorage["tache" + ($(this).parent().index()) + "prio"] = "prio-vert-highlight";
-		console.log($(this).parent().index());
 	});
 
 
@@ -144,19 +112,9 @@ $(document).ready(function(){
 		$('table').find('tr td:nth-child(' + col + ') button.tache').text("À faire");
 		$('table').find('tr td:nth-child(' + col + ') button.tache').removeClass("fait").addClass("a-faire");	
 
-		for(i = 1; i < 3; i++) {
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + (col) + ')').removeClass("prio-vert-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + (col) + ')').removeClass("prio-rouge-highlight");
-			$('thead tr:nth-child(' + i + ') th:nth-child(' + (col) + ')').removeClass("prio-jaune-highlight");
-		}
-
-		for(i = 1; i < 27; i++) {
-
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + (col) + ')').removeClass("prio-vert-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + (col) + ')').removeClass("prio-rouge-highlight");
-			$('tbody tr:nth-child(' + i + ') td:nth-child(' + (col) + ')').removeClass("prio-jaune-highlight");
-
-		}
+		$('thead tr:nth-child(1) th:nth-child(' + (col) + ')').removeClass("prio-vert-highlight");
+		$('thead tr:nth-child(1) th:nth-child(' + (col) + ')').removeClass("prio-rouge-highlight");
+		$('thead tr:nth-child(1) th:nth-child(' + (col) + ')').removeClass("prio-jaune-highlight");
 
 		localStorage["tache" + (col-1)  + "prio"] = "";
 	});

@@ -38,6 +38,28 @@ $(document).ready(function(){
 		$('tbody tr:nth-child(' + i + ') td:nth-child(1)').text(localStorage["eleve" + i + "name"]);
 	}
 
+
+	for(r = 1; r < 27; r++) {
+		for(c = 1; c < 11; c++) {
+
+			if(localStorage["eleve" + (r) + "tache" + (c)] == null || localStorage["eleve" + (r) + "tache" + (c)] == "undefined") {
+				console.log("r: " + r + "  c: " + c + "  null...");
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').addClass("a-faire");
+			}
+			else {
+				console.log("r: " + r + "  c: " + c + " addClass " + localStorage["eleve" + (r) + "tache" + (c)]);
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').addClass(localStorage["eleve" + (r) + "tache" + (c)]);
+			}
+			
+			if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("fait")) {
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("Fait");
+			}
+			else
+			{
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("À faire");
+			}
+		}
+	}
 	// Sauvegarder le nom des eleves automatiquement
 	$('tbody tr td').blur(function() {
 		console.log($(this).text() + "   " + $(this).parent().index() + "   " + localStorage["eleve" + ($(this).parent().index() + 1) + "name"]);
@@ -60,16 +82,22 @@ $(document).ready(function(){
 
 	$("button.tache").on('click', function(){
 
+		var eleve = $(this).parent().parent().index() + 1;
+		var tache = $(this).parent().index();
+
 		$(this).toggleClass("fait");
 		$(this).toggleClass("a-faire");
 
 		if($(this).hasClass("fait")) {
 			$(this).text("Fait");
+			localStorage["eleve" + (eleve) + "tache" + (tache)] = "fait";
 		}
 		else
 		{
 			$(this).text("À faire");
+			localStorage["eleve" + (eleve) + "tache" + (tache)] = "a-faire";
 		}
+
 	});
 
 	$("div.prio-rouge").on('click', function() {
@@ -117,6 +145,9 @@ $(document).ready(function(){
 		$('thead tr:nth-child(1) th:nth-child(' + (col) + ')').removeClass("prio-jaune-highlight");
 
 		localStorage["tache" + (col-1)  + "prio"] = "";
+		for(r = 1; r < 27; r++) {
+			localStorage["eleve" + (r) + "tache" + (col-1)] = "a-faire";
+		}
 	});
 
 
@@ -133,6 +164,22 @@ $(document).ready(function(){
 			$('table').find('tr:nth-child(1) th:nth-child(' + i + ')').removeClass("prio-rouge-highlight");
 			$('table').find('tr:nth-child(1) th:nth-child(' + i + ')').removeClass("prio-jaune-highlight");
 			localStorage["tache" + (i -1) + "prio"] = "";
+		}
+
+		for(r = 1; r < 27; r++) {
+			for(c = 1; c < 11; c++) {
+				localStorage["eleve" + (r) + "tache" + (c)] = "a-faire";
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').removeClass("fait");
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').addClass("a-faire");
+				
+				if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("fait")) {
+					$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("Fait");
+				}
+				else
+				{
+					$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("À faire");
+				}
+			}
 		}
 	});
 

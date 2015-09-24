@@ -4,14 +4,17 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Liste des tâches</title>
+  <title>Plan de travail</title>
   <meta name="author" content="SitePoint">
 
   <link rel="stylesheet" href="styles.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="dragtable.css" />
   <script src="jquery-1.11.3.js"></script>
+  <script type="text/javascript" src="jquery-ui.min.js"></script>
+  <script src="jquery.dragtable.js"></script>
   <script src="js/bootstrap.min.js"></script>
 
   <!--[if lt IE 9]>
@@ -34,38 +37,38 @@
 
 
   <div class="container">
-  <table class="table">
+  <table class="table" id="draggable-table">
     <thead>
       <tr>
         <th id="nom-eleves">Nom</th>
-        <th contentEditable="true" class="tache-name">Tâche 1</th>
-        <th contentEditable="true" class="tache-name">Tâche 2</th>
-        <th contentEditable="true" class="tache-name">Tâche 3</th>
-        <th contentEditable="true" class="tache-name">Tâche 4</th>
-        <th contentEditable="true" class="tache-name">Tâche 5</th>
-        <th contentEditable="true" class="tache-name">Tâche 6</th>
-        <th contentEditable="true" class="tache-name">Tâche 7</th>
-        <th contentEditable="true" class="tache-name">Tâche 8</th>
-        <th contentEditable="true" class="tache-name">Tâche 9</th>
-        <th contentEditable="true" class="tache-name">Tâche 10</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 1</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 2</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 3</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 4</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 5</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 6</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 7</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 8</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 9</th>
+        <th contentEditable="true" class="tache-name" onclick="document.execCommand('selectAll',false,null)">Tâche 10</th>
       </tr>
       <tr>
       	<th></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
-      	<th><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
+      	<th class="accept-drag"><div class="priorite prio-rouge"></div><div class="priorite prio-jaune"></div><div class="priorite prio-vert"></div></div><button class="reset-col">Reset</button><div class="anchor-drag glyphicon glyphicon-resize-horizontal"></div></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td contentEditable="true">Élève 1</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 1</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -78,7 +81,7 @@
         <td><button class="tache"></button></td>        
       </tr>
       <tr>
-        <td contentEditable="true">Élève 2</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 2</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -91,7 +94,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 3</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 3</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -104,7 +107,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 4</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 4</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -117,7 +120,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 5</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 5</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -130,7 +133,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 6</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 6</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -143,7 +146,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 7</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 7</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -156,7 +159,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 8</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 8</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -169,7 +172,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 9</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 9</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -182,7 +185,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 10</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 10</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -195,7 +198,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 11</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 11</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -208,7 +211,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 12</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 12</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -221,7 +224,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 13</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 13</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -234,7 +237,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 14</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 14</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -247,7 +250,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 15</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 15</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -260,7 +263,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 16</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 16</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -273,7 +276,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 17</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 17</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -286,7 +289,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 18</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 18</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -299,7 +302,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 19</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 19</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -312,7 +315,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 20</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 20</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -325,7 +328,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 21</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 21</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -338,7 +341,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 22</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 22</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -351,7 +354,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 23</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 23</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -364,7 +367,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 24</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 24</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -377,7 +380,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 25</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 25</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
@@ -390,7 +393,7 @@
         <td><button class="tache"></button></td>
       </tr>
       <tr>
-        <td contentEditable="true">Élève 26</td>
+        <td contentEditable="true" onclick="document.execCommand('selectAll',false,null)">Élève 26</td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>
         <td><button class="tache"></button></td>

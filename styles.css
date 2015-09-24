@@ -3,11 +3,15 @@ body {
 }
 
 .fait {
-	background-color: #44DD00;
+	background-color: #FFFF66;
 }
 
 .a-faire {
 	background-color: #D0D0FF;
+}
+
+.corrige {
+	background-color: #44DD00;
 }
 
 .priorite {
@@ -89,4 +93,17 @@ th {
 button {
 	text-align: center;
 	min-width: 30px;	
+}
+
+.anchor-drag {
+	cursor:move;
+    background-repeat:repeat-x;
+	min-width: 70px;
+	width: 70px;
+	max-width: 70px;
+    margin:0 1px;
+}
+
+div.glyphicon-resize-horizontal {
+	width: 90px;
 }

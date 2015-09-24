@@ -1,5 +1,31 @@
 $(document).ready(function(){
 
+	$('#draggable-table').dragtable({dragaccept:'.accept-drag', dragHandle:'.anchor-drag', persistState: function(table) { 
+		for(i = 1; i < 11; i++) {
+			// Sauvegarder tous les taches
+			localStorage["tache" + i + "name"] = $('thead tr:nth-child(1) th:nth-child(' + (i+1) + ')').text();
+			localStorage["tache" + i + "prio"] = $('thead tr:nth-child(1) th:nth-child(' + (i+1) + ')').attr('class');
+		}
+
+		for(r = 1; r < 27; r++) {
+			for(c = 1; c < 11; c++) {
+				if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("fait")) {
+					localStorage["eleve" + (r) + "tache" + (c)] = "fait";
+				}
+				else if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("corrige"))
+				{
+					localStorage["eleve" + (r) + "tache" + (c)] = "corrige";
+				}
+				else
+				{
+					localStorage["eleve" + (r) + "tache" + (c)] = "a-faire";
+				}
+			}
+		}
+	}
+
+	});
+
 	var mois = ["janvier", "février", "mars", "avril", "mai", "juin",
   	"juillet", "août", "septembre", "octobre", "novembre", "décembre"
 	];
@@ -43,27 +69,27 @@ $(document).ready(function(){
 		for(c = 1; c < 11; c++) {
 
 			if(localStorage["eleve" + (r) + "tache" + (c)] == null || localStorage["eleve" + (r) + "tache" + (c)] == "undefined") {
-				console.log("r: " + r + "  c: " + c + "  null...");
 				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').addClass("a-faire");
 			}
 			else {
-				console.log("r: " + r + "  c: " + c + " addClass " + localStorage["eleve" + (r) + "tache" + (c)]);
 				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').addClass(localStorage["eleve" + (r) + "tache" + (c)]);
 			}
 			
 			if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("fait")) {
 				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("Fait");
 			}
+			else if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("corrige"))
+			{
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("Corrigé");
+			}
 			else
 			{
-				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("À faire");
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("À faire");	
 			}
 		}
 	}
 	// Sauvegarder le nom des eleves automatiquement
 	$('tbody tr td').blur(function() {
-		console.log($(this).text() + "   " + $(this).parent().index() + "   " + localStorage["eleve" + ($(this).parent().index() + 1) + "name"]);
-
 		if (localStorage["eleve" + ($(this).parent().index() + 1) + "name"]!=$(this).text()) {
 
 			localStorage["eleve" + ($(this).parent().index() + 1) + "name"] = $(this).text();
@@ -72,8 +98,6 @@ $(document).ready(function(){
 
 	// Sauvegarder le nom des taches automatiquement
 	$('thead tr th').blur(function() {
-		console.log($(this).text() + "   " + $(this).index() + "   " + localStorage["tache" + ($(this).index() + 1) + "name"]);
-
 		if (localStorage["tache" + ($(this).index() ) + "name"]!=$(this).text()) {
 
 			localStorage["tache" + ($(this).index() ) + "name"] = $(this).text();
@@ -85,19 +109,22 @@ $(document).ready(function(){
 		var eleve = $(this).parent().parent().index() + 1;
 		var tache = $(this).parent().index();
 
-		$(this).toggleClass("fait");
-		$(this).toggleClass("a-faire");
-
-		if($(this).hasClass("fait")) {
+		if($(this).hasClass("a-faire")) {
+			$(this).removeClass("a-faire");
+			$(this).addClass("fait");
 			$(this).text("Fait");
 			localStorage["eleve" + (eleve) + "tache" + (tache)] = "fait";
-		}
-		else
-		{
+		} else if($(this).hasClass("fait")) {
+			$(this).removeClass("fait");
+			$(this).addClass("corrige");
+			$(this).text("Corrigé");
+			localStorage["eleve" + (eleve) + "tache" + (tache)] = "corrige";
+		} else if($(this).hasClass("corrige")){
+			$(this).removeClass("corrige");
+			$(this).addClass("a-faire");
 			$(this).text("À faire");
 			localStorage["eleve" + (eleve) + "tache" + (tache)] = "a-faire";
 		}
-
 	});
 
 	$("div.prio-rouge").on('click', function() {
@@ -138,7 +165,7 @@ $(document).ready(function(){
 		localStorage["tache" + (col -1) + "name"] = "Tâche " + (col-1);
 
 		$('table').find('tr td:nth-child(' + col + ') button.tache').text("À faire");
-		$('table').find('tr td:nth-child(' + col + ') button.tache').removeClass("fait").addClass("a-faire");	
+		$('table').find('tr td:nth-child(' + col + ') button.tache').removeClass("fait").removeClass("corrige").addClass("a-faire");	
 
 		$('thead tr:nth-child(1) th:nth-child(' + (col) + ')').removeClass("prio-vert-highlight");
 		$('thead tr:nth-child(1) th:nth-child(' + (col) + ')').removeClass("prio-rouge-highlight");
@@ -170,15 +197,9 @@ $(document).ready(function(){
 			for(c = 1; c < 11; c++) {
 				localStorage["eleve" + (r) + "tache" + (c)] = "a-faire";
 				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').removeClass("fait");
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').removeClass("corrige");
 				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').addClass("a-faire");
-				
-				if($('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').hasClass("fait")) {
-					$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("Fait");
-				}
-				else
-				{
-					$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("À faire");
-				}
+				$('tbody tr:nth-child(' + r + ') td:nth-child(' + (c+1) + ') button.tache').text("À faire");
 			}
 		}
 	});
